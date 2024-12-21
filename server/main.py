@@ -60,7 +60,6 @@ async def upload_pdf(file: UploadFile = File(...)):
         # Create embeddings and vector store
         embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
         vector_store = FAISS.from_documents(texts, embeddings)
-        print(embeddings)
         # Initialize conversation chain
         llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
         conversation_chain = ConversationalRetrievalChain.from_llm(
